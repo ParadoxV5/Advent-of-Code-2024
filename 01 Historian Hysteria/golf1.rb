@@ -1,0 +1,1 @@
+p (a=*$<).sort.zip(a.map{_1[8..]}.sort).sum{(_1.to_i-_2.to_i).abs}
