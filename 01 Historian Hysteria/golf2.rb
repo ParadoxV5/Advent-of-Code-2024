@@ -1,0 +1,1 @@
+p (a=*$<).sum{(n=_1.to_i)*a.grep(/#{n}$/).size}
