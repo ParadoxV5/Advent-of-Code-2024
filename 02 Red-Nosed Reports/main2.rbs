@@ -1,0 +1,10 @@
+type level = Integer
+type safe_range = Range[Integer]
+type index = Integer
+# Index of delta as identified by its level indices
+type delta_index = [index, index]
+
+class Object
+  SAFE_RANGES: Array[safe_range]
+  def get_delta: (Array[level] levels, delta_index) -> Integer
+end
