@@ -1,5 +1,16 @@
-target :'' do
-  check '**/*.rb'
-  ignore '**/golf*.rb'
-  signature '**/*.rbs'
+# frozen_string_literal: true
+
+target '.' do
+  check '*.rb'
+  signature '*.rbs'
+end
+
+Dir.glob '*/' do|dir|
+  dir.chop! # chop off trailing `/`
+  target dir do
+    check     "#{dir}/**/*.rb"
+    ignore    "#{dir}/**/golf*.rb"
+    signature '*.rbs'
+    signature "#{dir}/**/*.rbs"
+  end
 end

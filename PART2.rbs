@@ -1,0 +1,3 @@
+class Object
+  PART2: bool
+end
