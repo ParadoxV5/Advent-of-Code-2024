@@ -20,6 +20,6 @@ puts ARGF.read #: String
       mul\((\d++),(\d++)\)
     }mx) #: Array[[String, String, String, String]]
   .sum {|dont_do, skip, a, b|
-    p dont_do, skip if $VERBOSE
+    p dont_do, skip if $DEBUG
     Integer(a) * Integer(b)
   }
