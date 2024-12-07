@@ -1,0 +1,3 @@
+class Object
+  def operable?: (Integer target, Integer lhs, *Integer rhs) -> boolish
+end
