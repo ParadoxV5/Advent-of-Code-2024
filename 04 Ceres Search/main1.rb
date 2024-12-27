@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Noob: Iterate every row, column, diagonal and backward
 # Pro:  Look for neighboring Xs, Ms, As & Ss
 

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 target '.' do
   check '*.rb'
   signature '*.rbs'

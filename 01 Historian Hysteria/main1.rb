@@ -1,5 +1,5 @@
 puts ARGF # .each_line
-  .map{ _1.split.map(&:to_i) } # rows of columns
+  .map{ it.split.map(&:to_i) } # rows of columns
   .transpose # columns of rows
   .each(&:sort!) # columns of sorted rows
   .transpose # sorted rows of columns

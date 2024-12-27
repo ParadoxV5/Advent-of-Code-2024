@@ -1,10 +1,10 @@
-antennas = {}  #: Hash[String, Array[Complex]]
+antennas = {} #: Hash[String, Array[Complex]]
 widths = ARGF.each_line(chomp: true) # steep:ignore ArgumentTypeMismatch
   .with_index
   .map do|row, y|
     row.each_char.with_index do|frequency, x|
       unless frequency == '.'
-        antennas.fetch(frequency) { antennas[_1] = [] } << Complex.rect(x, y)
+        antennas.fetch(frequency) { antennas[it] = [] } << Complex.rect(x, y)
       end
     end
     row.size

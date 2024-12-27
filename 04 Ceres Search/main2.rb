@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # keep newlines so both `line[-1]` and `line[line.chomp.size]` gives a non-‘XMAS’ char
 input = ARGF.readlines
 # and have a similar padding for rows too

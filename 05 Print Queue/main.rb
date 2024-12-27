@@ -5,7 +5,7 @@
 # Read until `\n\n` inclusive, then chomp it off
 rulebook = ARGF.readline('', chomp: true) #steep:ignore ArgumentTypeMismatch
 rules = rulebook.each_line(chomp: true) # chomp newlines off for consistency
-  .to_h { [_1, -1] } # Most if not all implementations implement {Set} with a {Hash}, so might as well…
+  .to_h { [it, -1] } # Most if not all implementations implement {Set} with a {Hash}, so might as well…
 
 if $DEBUG
   # Assert the pre-condition

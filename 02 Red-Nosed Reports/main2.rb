@@ -11,10 +11,10 @@ puts ARGF.count {|line|
     .each_cons(2) #: Enumerator[delta_index, untyped]
     .group_by do|delta_index|
       delta = get_delta(levels, delta_index)
-      SAFE_RANGES.find { _1.include? delta }
+      SAFE_RANGES.find { it.include? delta }
     end
   
-  popular_range = SAFE_RANGES.max_by { delta_groups[_1]&.size or 0 } #: safe_range
+  popular_range = SAFE_RANGES.max_by { delta_groups[it]&.size or 0 } #: safe_range
   delta_groups.delete popular_range
   outlier_indices = delta_groups.values.flatten(1)
   
@@ -28,7 +28,7 @@ puts ARGF.count {|line|
     popular_range.include? get_delta levels, [a, c]
   # Part 2: Allow one unsafe delta with one tolerable level
   in [[a, b]]
-    [[a.pred, b], [a, b.succ]].any? { popular_range.include? get_delta levels, _1 }
+    [[a.pred, b], [a, b.succ]].any? { popular_range.include? get_delta levels, it }
   else
   end
 }

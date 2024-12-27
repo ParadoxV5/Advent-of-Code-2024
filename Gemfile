@@ -1,6 +1,5 @@
-# frozen_string_literal: true
-ruby '~> 3.3'
+ruby '~> 3.4'
 source 'https://rubygems.org'
 
-gem 'rbs', '~> 3.7.0', require: false
-gem 'steep', '~> 1.9.0', require: false
+gem 'rbs', '~> 3.8.0', require: false
+gem 'steep', '~> 1.9.3', require: false
