@@ -1,3 +1,5 @@
+PART2 = true
+
 antennas = {} #: Hash[String, Array[Complex]]
 widths = ARGF.each_line(chomp: true) # steep:ignore ArgumentTypeMismatch
   .with_index
@@ -22,15 +24,15 @@ puts antennas.each_value.flat_map {|group|
       t = u - d
       w = v + d
       
-      if false #: bool # Part 1
-        [t, w].select(&in_range)
-      else # Part 2
+      if PART2 # Part 2
         [
           *(t..).step(-d).take_while(&in_range),
           u,
           v,
           *(w..).step( d).take_while(&in_range)
         ]
+      else # Part 1
+        [t, w].select(&in_range)
       end
     end
 }.uniq.size

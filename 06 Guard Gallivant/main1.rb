@@ -1,17 +1,19 @@
 # Nothing to think here. Simulate, period.
 
-# keep newlines so both `line[-1]` and `line[line.chomp.size]` gives neither `.` nor `#`
+# keep newlines so both `line[-1]` and `line[line.chomp.size]` gives neither `.` nor `#`…
 map = ARGF.readlines
-# and have a similar padding for rows too
-map << ''
 
 pos = 0i
 map.each_with_index do|row, j| # https://bugs.ruby-lang.org/issues/20899
   if (i = row.index '^')
     pos = Complex.rect i, j
+    break # steep:ignore ImplicitBreakValueMismatch
   end
 end
 vel = -1i
+
+# …and have a similar padding for rows too
+map << ''
 
 count = 1 # 1 for the current space just marked with `X`
 loop do
