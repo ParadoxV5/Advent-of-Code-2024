@@ -1,3 +1,5 @@
+PART2 = true
+
 # Ruby has {Array#repeated_permutation},
 # but recalculating the whole equation for one change is quite wasteful.
 def operable?(target, lhs, *rhs)
@@ -9,7 +11,7 @@ def operable?(target, lhs, *rhs)
       div, mod = target.divmod last_rhs
       operable? div, lhs, *rhs if mod.zero? # Part 1
     ) or (
-      if (lhalf = target.to_s.delete_suffix! last_rhs.to_s)
+      if PART2 and (lhalf = target.to_s.delete_suffix! last_rhs.to_s)
         # Note: API design-wise, do not accept a String cache – AoC input has trailing `:`s.
         operable? lhalf.to_i, lhs, *rhs # Part 2
       end
