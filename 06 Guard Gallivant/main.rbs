@@ -1,0 +1,15 @@
+class Simulator
+  MAP: Array[Array[String|Integer]]
+  
+  def self.before_step: (Complex pos, Complex vel, Complex pos2) -> void
+  def self.before_step_in_new_dir: (Complex pos, Integer simulation_id) -> void
+  
+  def self.call: (Complex pos, Complex vel, Integer simulation_id) -> void
+  
+  class Part1 < Simulator
+    VISITED: Set[Complex]
+  end
+  class Part2 < Simulator
+    attr_reader self.count: Integer
+  end
+end
