@@ -1,0 +1,14 @@
+class Stone
+  STONES: Hash[Integer, Stone]
+  
+  @number: Integer
+  def initialize: (Integer number) -> void
+  
+  type nexts = Array[Stone]
+  @next: nexts?
+  def nexts: () -> nexts
+  
+  type count_after_blinks = Hash[Integer, Integer]
+  @count_after_blinks: count_after_blinks?
+  def count_after_blinks: () -> count_after_blinks
+end
