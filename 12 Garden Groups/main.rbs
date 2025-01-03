@@ -1,0 +1,9 @@
+class Region
+  GARDEN: Array[Array[String?|Region]]
+  
+  attr_accessor perimeter: Integer
+  alias to_i perimeter
+  
+  def self.neighbors: (Integer x, Integer y) -> Array[[Integer, Integer]]
+  def self.flood_fill: (String plant, Integer x, Integer y, ?Region? region) -> void
+end
