@@ -1,0 +1,9 @@
+type list = Array[Integer]
+class Object
+  def minimum_entropy: (list ps, list vs, Integer modulus) -> [list, Integer]
+end
+
+# shim
+class Enumerator::Lazy[out Elem, out Return = void]
+  def take: (Integer n) -> Enumerator::Lazy[Elem]
+end
