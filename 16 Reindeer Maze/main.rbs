@@ -1,0 +1,13 @@
+class QueuedNode < Data
+  type score = Integer | Float
+  MAP: Array[Array[score?]]
+  
+  attr_reader pos: Complex
+  attr_reader vel: Complex
+  def self.new: (Complex pos, Complex vel) -> instance
+  
+  def cell: () -> score?
+  interface _Integer
+    def cell: () -> Integer
+  end
+end
