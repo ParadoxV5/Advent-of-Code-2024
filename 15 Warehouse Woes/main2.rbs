@@ -1,0 +1,6 @@
+type changelist = Hash[[Integer, Integer], String]
+
+class Object
+  MAP: Array[String]
+  def check_vertical_push: (Integer x, Integer y, Integer dy, changelist) -> boolish
+end
