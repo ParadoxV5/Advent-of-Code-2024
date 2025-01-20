@@ -1,6 +1,6 @@
 class QueuedNode < Data
   type score = Integer | Float
-  MAP: Array[Array[score?]]
+  MAP: Array[Array[Hash[Complex, score]?]]
   
   attr_reader pos: Complex
   attr_reader vel: Complex
