@@ -1,0 +1,25 @@
+class Instruction
+  attr_accessor self.pc: Integer
+  attr_accessor self.a: Integer
+  attr_accessor self.b: Integer
+  attr_accessor self.c: Integer
+  attr_accessor self.rom: Array[Integer]
+  attr_accessor self.out: Array[Integer]
+  
+  def self?.get_combo: (Integer operand) -> Integer
+  
+  def call: (Integer operand) -> Integer
+  alias initialize instance_eval
+  
+  class DV < Instruction
+    def call: ...
+  end
+  class BXL < Instruction
+    def call: ...
+  end
+  class ST < Instruction
+    def call: ...
+  end
+  
+  INSTRUCTIONS: Array[Instruction]
+end
