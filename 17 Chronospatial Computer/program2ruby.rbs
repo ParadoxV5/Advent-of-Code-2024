@@ -1,0 +1,5 @@
+class Object
+  PROGRAM: Array[String]
+  def get_combo: (String operand) -> String
+  def puts_instructions: (?Integer inclusive_begin, ?Integer exclusive_end, ?indent: _ToS) -> void
+end
