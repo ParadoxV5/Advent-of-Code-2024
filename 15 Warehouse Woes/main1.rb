@@ -1,8 +1,7 @@
 # Task: implement [Baba is You push mechanics][baba]
 # [baba]: https://www.reddit.com/r/adventofcode/comments/1hetsol/2024_day_15_solution_in_baba_is_you/
 
-map = gets('', chomp: true) #: String
-  .lines(chomp: true)
+map = readline('', chomp: true).lines(chomp: true)
 x = y = 0
 map.each_with_index do|row, j| # https://bugs.ruby-lang.org/issues/20899
   if (i = row.index '@')

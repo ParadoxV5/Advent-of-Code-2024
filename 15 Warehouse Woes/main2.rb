@@ -1,20 +1,19 @@
 # Vertical chains are now heterogenous trees. Time to actually implement Baba is You push mechanics!
 
 x = y = 0
-MAP = gets('', chomp: true) #: String
-  .each_line(chomp: true).with_index.map do|line, j|
-    line.gsub(/./).with_index do|tile, i|
-      case tile
-      when 'O'
-        '[]'
-      when '@'
-        x, y = i*2, j
-        '..'
-      else
-        tile * 2
-      end
+MAP = readline('', chomp: true).each_line(chomp: true).with_index.map do|line, j|
+  line.gsub(/./).with_index do|tile, i|
+    case tile
+    when 'O'
+      '[]'
+    when '@'
+      x, y = i*2, j
+      '..'
+    else
+      tile * 2
     end
   end
+end
 
 # Each push must validate the entire tree before applying changes.
 # To save the second iteration, I cache changes in a hashmap.

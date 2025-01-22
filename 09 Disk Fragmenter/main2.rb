@@ -1,4 +1,4 @@
-map = gets chomp: true #: String
+map = readline(chomp: true)
 # pre-size capacity
 files  = Array.new map.size / 2 #$ [Integer, Integer]
 spaces = Array.new files.size   #$ [Integer, Integer]

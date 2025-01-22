@@ -1,12 +1,11 @@
 idx = checksum = 0
 # Array of exclude-end? ranges
-files = gets(chomp: true) #: String
-  .each_char.each_slice(2).map do|size_pair|
-    file_size, space_size = size_pair.map &:to_i #: [Integer, Integer]
-    file_range = idx...(idx + file_size)
-    idx = file_range.end + space_size
-    file_range
-  end
+files = readline(chomp: true).each_char.each_slice(2).map do|size_pair|
+  file_size, space_size = size_pair.map &:to_i #: [Integer, Integer]
+  file_range = idx...(idx + file_size)
+  idx = file_range.end + space_size
+  file_range
+end
 
 # * Algorithm: substitute space sections with file blocks taken from the right side of the map
 # * Optimization: the strategy is so straightforward, the simulation can nest in the checksumming.
