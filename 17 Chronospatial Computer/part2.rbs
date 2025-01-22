@@ -1,0 +1,4 @@
+class Object
+  OUTPUT: Array[Integer]
+  def push_deduction: (?Integer current, ?Integer index) -> Integer?
+end
