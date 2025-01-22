@@ -1,4 +1,4 @@
-# für Part 2
+# für Part 2 (also usable for Part 1: `ruby program2ruby.rb input.txt | ruby`)
 
 puts 'OUT = []', readline('').gsub(/Register (\w++):\s+/, '$\1 = ')
 PROGRAM = (ARGF.read or raise EOFError).scan(/\d/) #: Array[String]
