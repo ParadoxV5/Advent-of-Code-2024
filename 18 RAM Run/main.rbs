@@ -1,0 +1,11 @@
+type coords = [Integer, Integer]
+
+class Object
+  EXIT_X: Integer
+  EXIT_Y: Integer
+  MAX_DISTANCE: Integer
+  MAP: Array[Array[Integer?]]
+  
+  FRONTIER: Set[coords]
+  def dijkstra_bfs: () -> Integer?
+end
