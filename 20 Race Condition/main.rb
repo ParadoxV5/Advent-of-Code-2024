@@ -1,6 +1,8 @@
 # Reminds me of Vanellope von Schweetz
+cheat_distances = 2..20 # Part 1: 2..2, Part 2: 2..20
+
 start = [0, 0] #: [Integer, Integer]
-# The map is bordered on all sides (so wrapping off one edge will land you on top of the other edge).
+# The map is bordered on all sides.
 map = ARGF.each_line(chomp: true).with_index.map do|line, y|
   # Integer = visited, nil = unvisited, false = off-track
   line.each_char.with_index.map do|position, x| #$ Integer?|false
@@ -28,18 +30,25 @@ puts(
     ].find { map.dig(*it).nil? } || (raise StopIteration) #: [Integer, Integer]
   end
   # Won’t have enough distance to backtrack a cheat to until we’ve run
-  # 100 minimum net savings + 2 minimum cheat distance
-  .lazy.drop(102)
-  .each_with_index # deduct that 100+2 from the index `max_picosecond`
-  .sum do|(y, x), max_picosecond| # count missed cheats
-    [
-      [y  , x-2],
-      [y-2, x  ],
-      [y  , x+2],
-      [y+2, x  ]
-    ].count do|coordz2|
-      picosecond2 = map.dig(*coordz2)
-      picosecond2 and picosecond2 <= max_picosecond
+  # 100 minimum net savings (Part 2 Example: 50)
+  .lazy.drop(100) #: Enumerator[[Integer, Integer], void]
+  .each_with_index # deduct that 100 from the index `picosecond2`
+  .sum do|(y, x), picosecond0| # count missed cheats
+    cheat_distances.sum do|cheat_distance|
+      max_picosecond = picosecond0 - cheat_distance # and deduct the cheat’s own distance
+      (0...cheat_distance).sum do|d1|
+        d2 = cheat_distance - d1
+        [
+          [y+d1, x+d2],
+          [y-d2, x+d1],
+          [y-d1, x-d2],
+          [y+d2, x-d1]
+        ].count do|coordz2|
+          next if coordz2.any?(&:negative?) # Skip negative underflows (positive overflows {Array#dig} into `nil`)
+          picosecond2 = map.dig(*coordz2)
+          picosecond2 and picosecond2 <= max_picosecond
+        end
+      end
     end
   end
 )
