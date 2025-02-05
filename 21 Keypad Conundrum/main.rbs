@@ -3,22 +3,14 @@ class KeypadOperator
   
   class Robot < KeypadOperator
     type keypad = Hash[String, Complex]
-    def keypad: () -> keypad
+    DPAD: keypad
     
     @arm: Complex
     @presses: Hash[String, Integer]
-    def initialize: (KeypadOperator operator) -> void
+    def initialize: (keypad keypad, KeypadOperator operator) -> void
     def presses: ...
     
     ROUTE_RUDL: Hash[String, Integer]
     ROUTE_LDUR: Hash[String, Integer]
-    def route_key: (Complex target_coords) -> Hash[String, Integer]
-    def route_to: (String target) -> String
-    
-    NUMPAD: keypad
-    class DPad < Robot
-      KEYPAD: keypad
-      def keypad: ...
-    end
   end
 end
