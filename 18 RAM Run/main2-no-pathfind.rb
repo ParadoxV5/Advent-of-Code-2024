@@ -23,7 +23,7 @@ ARGF.each_line do|line|
     .group_by(&:class)
   
   edge, edge2 = neighbors[Symbol] #: Array[:top_right|:bottom_left]
-  break puts line if edge2 # steep:ignore BreakTypeMismatch
+  break puts line if edge2
   neighborhoods = neighbors[Array] #: Array[Array[coords]]?
   
   corruptions[corruption] = if edge # new connection

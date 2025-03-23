@@ -24,7 +24,7 @@ class Stone
     [@number * 2024]
   end.map { STONES[it] }
   
-  def count_after_blinks = @count_after_blinks ||= Hash.new do|hash, blinks|
+  def count_after_blinks = @count_after_blinks ||= Hash.new do|hash, blinks| #$ Integer, Integer
     blinks2 = blinks.pred
     hash[blinks] = nexts.sum { it.count_after_blinks[blinks2] }
   end.tap { it[1] = nexts.size }

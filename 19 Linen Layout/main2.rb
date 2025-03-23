@@ -10,4 +10,5 @@ end
 #towels.each { permutations[it] = 1 } # only if no towel patterns overlap, which isn’t this day
 permutations[''] = 1
 
-puts ARGF.each_line(chomp: true).sum(&permutations)
+puts ARGF.each_line(chomp: true) # steep:ignore ArgumentTypeMismatch
+  .sum(&permutations)

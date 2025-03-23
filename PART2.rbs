@@ -1,3 +1,4 @@
 class Object
   PART2: bool
+  def it: () -> untyped
 end

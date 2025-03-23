@@ -11,7 +11,7 @@ class QueuedNode
   finish = 0i
   
   # Don’t need a trailing `\n` because the maze is fully closed.
-  MAP = ARGF.each_line(chomp: true).with_index.map do|line, y|
+  MAP = ARGF.each_line(chomp: true).with_index.map do|line, y| # steep:ignore ArgumentTypeMismatch
     line.each_char.with_index.map do|char, x|
       east_cell = case char
       when '#'
@@ -33,7 +33,7 @@ class QueuedNode
   
   def cell = MAP.dig pos.imag, pos.real, vel
   
-  parents = Hash.new { _1[_2] = [] } #: Hash[instance, Array[instance]]
+  parents = Hash.new { _1[_2] = [] } #$ instance, Array[instance]
   here = nil
   # Part 1: Dijkstra’s implemented as a maze solver (i.e., hybrid with BFS)
   while (here = node_set.min_by(&:cell))

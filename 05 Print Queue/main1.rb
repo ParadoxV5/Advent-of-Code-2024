@@ -15,7 +15,7 @@
 # Each update compares every pair of pages for Θ(1)Θ(nCr(n, 2)) = Θ(n²) runtime.
 
 # Read until `\n\n` inclusive, then chomp it off
-rules = ARGF.readline('', chomp: true) #steep:ignore ArgumentTypeMismatch
+rules = ARGF.readline('', chomp: true)
   .each_line(chomp: true) # chomp newlines off for consistency
   .to_set
 

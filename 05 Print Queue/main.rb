@@ -3,7 +3,7 @@
 # which means any sorting algorithm works on this totally ordered set.
 
 # Read until `\n\n` inclusive, then chomp it off
-rulebook = ARGF.readline('', chomp: true) #steep:ignore ArgumentTypeMismatch
+rulebook = ARGF.readline('', chomp: true)
 rules = rulebook.each_line(chomp: true) # chomp newlines off for consistency
   .to_h { [it, -1] } # Most if not all implementations implement {Set} with a {Hash}, so might as well…
 

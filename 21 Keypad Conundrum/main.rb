@@ -52,6 +52,7 @@ class KeypadOperator
       end.merge('A' => 0i, '0' => -1.to_c),
       25.times.reduce(KeypadOperator.new) {|operator, _i| new DPAD, operator } # Part 1: 2; Part 2: 25
     )
-    puts ARGF.each_line(chomp: true).sum { numpad.presses(it) * it.to_i }
+    puts ARGF.each_line(chomp: true) # steep:ignore ArgumentTypeMismatch
+      .sum { numpad.presses(it) * it.to_i }
   end
 end

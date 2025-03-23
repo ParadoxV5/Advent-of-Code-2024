@@ -7,7 +7,7 @@ pos = 0i
 map.each_with_index do|row, j| # https://bugs.ruby-lang.org/issues/20899
   if (i = row.index '^')
     pos = Complex.rect i, j
-    break # steep:ignore ImplicitBreakValueMismatch
+    break
   end
 end
 vel = -1i

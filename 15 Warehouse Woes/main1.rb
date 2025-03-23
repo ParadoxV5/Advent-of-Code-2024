@@ -6,7 +6,7 @@ x = y = 0
 map.each_with_index do|row, j| # https://bugs.ruby-lang.org/issues/20899
   if (i = row.index '@')
     x, y = i, j
-    break # steep:ignore ImplicitBreakValueMismatch
+    break
   end
 end
 

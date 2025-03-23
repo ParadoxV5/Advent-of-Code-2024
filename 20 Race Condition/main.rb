@@ -3,7 +3,7 @@ cheat_distances = 2..20 # Part 1: 2..2, Part 2: 2..20
 
 start = [0, 0] #: [Integer, Integer]
 # The map is bordered on all sides.
-map = ARGF.each_line(chomp: true).with_index.map do|line, y|
+map = ARGF.each_line(chomp: true).with_index.map do|line, y| # steep:ignore ArgumentTypeMismatch
   # Integer = visited, nil = unvisited, false = off-track
   line.each_char.with_index.map do|position, x| #$ Integer?|false
     case position
